@@ -25,6 +25,7 @@ print("no player has won, the game ends in a draw.")
 
 input("\nPress Enter to start playing: ")
 
+
 def print_board():
     """
        This function displays the current state of the board.
@@ -51,6 +52,7 @@ def print_scoreboard():
     print("Computer: " + str(computer_wins) + " wins")
     print("Ties: " + str(ties) + "\n")
 
+
 def computer_move(icon):
     """
     This function makes a move for the computer
@@ -66,17 +68,40 @@ def computer_move(icon):
             break
 
 
+def player_move(icon):
+    """
+
+    This function lets the player select a board position
+    (1-9) and marks it with their icon. The function checks
+    if the choice is valid and empty. If not, an error message 
+    is shown and player must try again.
+
+    :param icon: The icon used to mark the board position.
+    :return: None
+    """
+    while True:
+        try:
+            choice = int(input("Enter your move (1-9): ").strip()) - 1
+            if choice >= 0 and choice <= 8:
+                if board[choice] == ' ':
+                    board[choice] = icon
+                    break
+                else:
+                    print("\nSpace already taken, try again.")
+            else:
+                print("\nInvalid choice, try again.")
+        except ValueError:
+            print("\nInvalid input, try again.")
+
+
 
 while True:
+    print_board()
+    print_scoreboard()
+    player_move('X')
     computer_move('O')
     print_board()
-    breaks
-    
     board = [' ' for x in range(9)]
-        
-
-
-
 
 
 
