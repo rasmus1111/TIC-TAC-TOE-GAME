@@ -27,7 +27,7 @@ input("\nPress Enter to start playing: ")
 
 def print_board():
     """
-       This function displays the current state of the grid.
+       This function displays the current state of the board.
     """
     print("")
     print(" " + board[0] + " | " + board[1] + " | " + board[2] + " ")
@@ -51,12 +51,35 @@ def print_scoreboard():
     print("Computer: " + str(computer_wins) + " wins")
     print("Ties: " + str(ties) + "\n")
 
+def computer_move(icon):
+    """
+    This function makes a move for the computer
+     in the game. The computer plays randomly 
+     choosing a position on the board that is currently 
+     empty and marks it with the specified icon.
+ 
+    """
+    while True:
+        choice = random.randint(0, 8)
+        if board[choice] == ' ':
+            board[choice] = icon
+            break
 
 
-print_board()
-print_scoreboard()
+
+while True:
+    computer_move('O')
+    print_board()
+    breaks
     
+    board = [' ' for x in range(9)]
+        
 
 
 
-
+ADD computer_move function for computer player's turn in the game
+This function allows the computer player to make a 
+move by randomly selecting an empty position on the
+ game board and marking it with the specified icon. 
+ The function ensures that the chosen position is valid by
+  checking if it is empty before making the move.
