@@ -128,7 +128,6 @@ def check_draw():
             return False
     return True
 
-
 while True:
 
     print_board()
@@ -138,11 +137,17 @@ while True:
         print_board()
         print("X wins! Congratulations " + player_name + "!")
         player_wins += 1
+        if player_wins == 5:
+            print("\n" + player_name + " has won the game by 5 points! Congratulations!")
+            break
         board = [' ' for x in range(9)]
     elif check_draw():
         print_board()
         print("It's a draw")
         ties += 1
+        if ties == 5:
+            print("\nThe game has ended in a draw by 5 ties.")
+            break
         board = [' ' for x in range(9)]
     else:
         computer_move('O')
@@ -150,7 +155,7 @@ while True:
             print_board()
             print("O wins! Better luck next time " + player_name + ".")
             computer_wins += 1
+            if computer_wins == 5:
+                print("\nThe computer has won the game by 5 points.")
+                break
             board = [' ' for x in range(9)]
-
-
-
