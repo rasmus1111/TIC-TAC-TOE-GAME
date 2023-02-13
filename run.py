@@ -1,4 +1,5 @@
 import random
+import sys
 
 player_name = input("Enter your name: ").strip()
 board = [' ' for x in range(9)]
@@ -79,20 +80,24 @@ def player_move(icon):
     :param icon: The icon used to mark the board position.
     :return: None
     """
-    while True:
+    while True: 
         try:
-            choice = int(input("Enter your move (1-9): ").strip()) - 1
-            if choice >= 0 and choice <= 8:
-                if board[choice] == ' ':
-                    board[choice] = icon
-                    break
-                else:
-                    print("\nSpace already taken, try again.")
+            choice = input("To leave the game type 'exit' \n\nEnter your move (1-9): ").strip()
+            if choice == 'exit':
+                print("Thanks for playing Tic-Tac-Toe! Have a great day.")
+                sys.exit()
             else:
-                print("\nInvalid choice, try again.")
+                choice = int(choice) - 1
+                if choice >= 0 and choice <= 8:
+                    if board[choice] == ' ':
+                        board[choice] = icon
+                        break
+                    else:
+                        print("\nSpace already taken, try again.")
+                else:
+                    print("\nInvalid choice, try again.")
         except ValueError:
             print("\nInvalid input, try again.")
-
 
 def check_victory(icon):
     """
