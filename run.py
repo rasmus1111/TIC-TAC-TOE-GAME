@@ -15,7 +15,7 @@ def print_board():
     print(" " + board[6] + " | " + board[7] + " | " + board[8] + " ")
     print("")
 
-print_board()    
+print_board()   
 
 
 
