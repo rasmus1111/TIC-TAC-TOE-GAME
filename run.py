@@ -112,9 +112,20 @@ def check_victory(icon):
         return True
     return False
 
-#Added function to check if player or computer has won the tic-tac-toe game
+
+def check_draw():
+    """
+    this function checks if the game is a draw 
+    and returns True if all positions filled.
+    """
+    for i in range(9):
+        if board[i] == ' ':
+            return False
+    return True
+
 
 while True:
+  
     print_board()
     print_scoreboard()
     player_move('X')
@@ -122,16 +133,18 @@ while True:
         print_board()
         print("X wins! Congratulations " + player_name + "!")
         player_wins += 1
-        
         board = [' ' for x in range(9)]
-   
+    elif check_draw():
+        print_board()
+        print("It's a draw")
+        ties += 1
+        board = [' ' for x in range(9)]
     else:
         computer_move('O')
         if check_victory('O'):
             print_board()
             print("O wins! Better luck next time " + player_name + ".")
             computer_wins += 1
-            
             board = [' ' for x in range(9)]
 
 
