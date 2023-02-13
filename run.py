@@ -1,13 +1,19 @@
+#Import the 'random' and 'sys' modules.
 import random
 import sys
 
+#Get the player's name and store it in the 'player_name' variable.
 player_name = input("Enter your name: ").strip()
+
+#Create a list of 9 empty spaces to represent the board.
 board = [' ' for x in range(9)]
 
+#To Keep track of the score 
 player_wins = 0
 computer_wins = 0
 ties = 0
 
+# Welcome message and rules to the game.
 print("\nWelcome to Tic-Tac-Toe, " + player_name + "!\n")
 print("The rules of the game are as follows:\n")
 print("1. The game is played on a 3x3 grid.")
@@ -26,7 +32,7 @@ print("no player has won, the game ends in a draw.")
 
 input("\nPress Enter to start playing: ")
 
-
+#Got help from google for this code 
 def print_board():
     """
        This function displays the current state of the board.
@@ -99,6 +105,7 @@ def player_move(icon):
         except ValueError:
             print("\nInvalid input, try again.")
 
+ #got help from google for this code 
 def check_victory(icon):
     """
     This function checks if the player or computer has won the game.
@@ -128,8 +135,14 @@ def check_draw():
             return False
     return True
 
-while True:
 
+while True:
+"""
+Game loop for a the game, including player and 
+computer moves, win and draw checks, and updating 
+the scoreboard. The loop continues until either a player 
+wins 5 games or there are 5 ties.
+"""
     print_board()
     print_scoreboard()
     player_move('X')
