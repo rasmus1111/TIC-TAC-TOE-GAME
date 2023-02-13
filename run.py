@@ -130,7 +130,7 @@ def check_draw():
 
 
 while True:
-  
+
     print_board()
     print_scoreboard()
     player_move('X')
