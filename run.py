@@ -37,10 +37,25 @@ def print_board():
     print(" " + board[6] + " | " + board[7] + " | " + board[8] + " ")
     print("")
 
-print_board()   
+
+def print_scoreboard():
+    """
+    This function prints a scoreboard of a game,
+    showing the number of wins for the player and the computer,
+    as well as the number of ties. The names of the player 
+    and the computer are also displayed.
+
+    """
+    print("\nScoreboard: ")
+    print(player_name + ": " + str(player_wins) + " wins")
+    print("Computer: " + str(computer_wins) + " wins")
+    print("Ties: " + str(ties) + "\n")
 
 
 
+print_board()
+print_scoreboard()
+    
 
 
 
