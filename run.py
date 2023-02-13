@@ -23,6 +23,7 @@ print("horizontally, vertically, or diagonally) wins the game.")
 print("6. If all the cells on the grid are filled and ")
 print("no player has won, the game ends in a draw.")
 
+input("\nPress Enter to start playing: ")
 
 def print_board():
     """
