@@ -138,7 +138,7 @@ def check_draw():
 
 while True:
 """
-Game loop for a the game, including player and 
+Game loop for the game, including player and 
 computer moves, win and draw checks, and updating 
 the scoreboard. The loop continues until either a player 
 wins 5 games or there are 5 ties.
