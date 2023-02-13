@@ -94,14 +94,45 @@ def player_move(icon):
             print("\nInvalid input, try again.")
 
 
+def check_victory(icon):
+    """
+    This function checks if the player or computer has won the game.
+    Looks at all possible win combinations and returns True 
+    if player has their icon in all positions of a row, column, or diagonal.
+    
+    """
+    for i in range(3):
+        if board[i*3] == icon and board[i*3 + 1] == icon and board[i*3 + 2] == icon:
+            return True
+        if board[i] == icon and board[i + 3] == icon and board[i + 6] == icon:
+            return True
+    if board[0] == icon and board[4] == icon and board[8] == icon:
+        return True
+    if board[2] == icon and board[4] == icon and board[6] == icon:
+        return True
+    return False
+
+#Added function to check if player or computer has won the tic-tac-toe game
 
 while True:
     print_board()
     print_scoreboard()
     player_move('X')
-    computer_move('O')
-    print_board()
-    board = [' ' for x in range(9)]
+    if check_victory('X'):
+        print_board()
+        print("X wins! Congratulations " + player_name + "!")
+        player_wins += 1
+        
+        board = [' ' for x in range(9)]
+   
+    else:
+        computer_move('O')
+        if check_victory('O'):
+            print_board()
+            print("O wins! Better luck next time " + player_name + ".")
+            computer_wins += 1
+            
+            board = [' ' for x in range(9)]
 
 
 
