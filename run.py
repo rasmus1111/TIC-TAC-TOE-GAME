@@ -1,14 +1,14 @@
-#Import the 'random' and 'sys' modules.
+# Import the 'random' and 'sys' modules.
 import random
 import sys
 
-#Get the player's name and store it in the 'player_name' variable.
+# Get the player's name and store it in the 'player_name' variable.
 player_name = input("Enter your name: ").strip()
 
-#Create a list of 9 empty spaces to represent the board.
+# Create a list of 9 empty spaces to represent the board.
 board = [' ' for x in range(9)]
 
-#To Keep track of the score 
+# To Keep track of the score.
 player_wins = 0
 computer_wins = 0
 ties = 0
@@ -32,7 +32,8 @@ print("no player has won, the game ends in a draw.")
 
 input("\nPress Enter to start playing: ")
 
-#Got help from google for this code 
+
+# Got help from google for this code.
 def print_board():
     """
        This function displays the current state of the board.
@@ -50,7 +51,7 @@ def print_scoreboard():
     """
     This function prints a scoreboard of a game,
     showing the number of wins for the player and the computer,
-    as well as the number of ties. The names of the player 
+    as well as the number of ties. The names of the player
     and the computer are also displayed.
 
     """
@@ -63,11 +64,10 @@ def print_scoreboard():
 def computer_move(icon):
     """
     This function makes a move for the computer
-     in the game. The computer plays randomly 
-     choosing a position on the board that is currently 
+     in the game. The computer plays randomly
+     choosing a position on the board that is currently
      empty and marks it with the specified icon.
- 
-    """
+     """
     while True:
         choice = random.randint(0, 8)
         if board[choice] == ' ':
@@ -80,15 +80,16 @@ def player_move(icon):
 
     This function lets the player select a board position
     (1-9) and marks it with their icon. The function checks
-    if the choice is valid and empty. If not, an error message 
+    if the choice is valid and empty. If not, an error message
     is shown and player must try again.
 
     :param icon: The icon used to mark the board position.
     :return: None
     """
-    while True: 
+    while True:
         try:
-            choice = input("To leave the game type 'exit' \n\nEnter your move (1-9): ").strip()
+            choice = input("To leave the game type'exit'\
+                Enter your move (1-9): ").strip()
             if choice == 'exit':
                 print("Thanks for playing Tic-Tac-Toe! Have a great day.")
                 sys.exit()
@@ -105,29 +106,33 @@ def player_move(icon):
         except ValueError:
             print("\nInvalid input, try again.")
 
- #got help from google for this code 
+
+# got help from google for this code.
 def check_victory(icon):
     """
     This function checks if the player or computer has won the game.
-    Looks at all possible win combinations and returns True 
+    Looks at all possible win combinations and returns True
     if player has their icon in all positions of a row, column, or diagonal.
-    
     """
-    for i in range(3):
-        if board[i*3] == icon and board[i*3 + 1] == icon and board[i*3 + 2] == icon:
+    win_positions = [[0, 1, 2], [3, 4, 5], [6, 7, 8],
+                     [0, 3, 6], [1, 4, 7], [2, 5, 8],
+                     [0, 4, 8], [2, 4, 6]]
+
+    for pos in win_positions:
+        win = True
+        for i in pos:
+            if board[i] != icon:
+                win = False
+                break
+        if win:
             return True
-        if board[i] == icon and board[i + 3] == icon and board[i + 6] == icon:
-            return True
-    if board[0] == icon and board[4] == icon and board[8] == icon:
-        return True
-    if board[2] == icon and board[4] == icon and board[6] == icon:
-        return True
+
     return False
 
 
 def check_draw():
     """
-    this function checks if the game is a draw 
+    this function checks if the game is a draw
     and returns True if all positions filled.
     """
     for i in range(9):
@@ -138,9 +143,9 @@ def check_draw():
 
 while True:
     """
-    Game loop for a the game, including player and 
-    computer moves, win and draw checks, and updating 
-    the scoreboard. The loop continues until either a player 
+    Game loop for a the game, including player and
+    computer moves, win and draw checks, and updating
+    the scoreboard. The loop continues until either a player
     wins 5 games or there are 5 ties.
     """
     print_board()
@@ -151,7 +156,8 @@ while True:
         print("X wins! Congratulations " + player_name + "!")
         player_wins += 1
         if player_wins == 5:
-            print("\n" + player_name + " has won the game by 5 points! Congratulations!")
+            print("\n" + player_name + " has won the game by 5 points!\
+                 Congratulations!")
             break
         board = [' ' for x in range(9)]
     elif check_draw():
