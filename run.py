@@ -157,7 +157,7 @@ while True:
         player_wins += 1
         if player_wins == 5:
             print("\n" + player_name + " has won the game by 5 points!\
-                 Congratulations!")
+                 \nCongratulations!")
             break
         board = [' ' for x in range(9)]
     elif check_draw():
