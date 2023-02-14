@@ -88,8 +88,8 @@ def player_move(icon):
     """
     while True:
         try:
-            choice = input("To leave the game type'exit'\n \
-                Enter your move (1-9): ").strip()
+            choice = input("To leave the game type'exit' \
+                \nEnter your move (1-9): ").strip()
             if choice == 'exit':
                 print("Thanks for playing Tic-Tac-Toe! Have a great day.")
                 sys.exit()
