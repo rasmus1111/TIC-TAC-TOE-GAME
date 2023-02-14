@@ -17,18 +17,18 @@ ties = 0
 print("\nWelcome to Tic-Tac-Toe, " + player_name + "!\n")
 print("The rules of the game are as follows:\n")
 print("1. The game is played on a 3x3 grid.")
-print("2. You will be 'X' and the computer will be 'O'.")
-print("3. To make a move, enter a number from 1 to 9.")
-print("4. The numbers correspond to the positions on the grid as follows:\n")
+print("2. You will be 'X' and the \ncomputer will be 'O'.")
+print("3. To make a move, enter a number \nfrom 1 to 9.")
+print("4. The numbers correspond to the \npositions on the grid as follows:\n")
 print(" 1 | 2 | 3 ")
 print("---+---+---")
 print(" 4 | 5 | 6 ")
 print("---+---+---")
 print(" 7 | 8 | 9 ")
-print("\n5. The first player to get three of their \nsymbols in a row ")
-print("horizontally, vertically, or diagonally) wins the game.")
-print("6. If all the cells on the grid are filled and ")
-print("no player has won, the game ends in a draw.")
+print("\n5. The first player to get three of \ntheir symbols in a row ")
+print("horizontally, vertically, or diagonally) \nwins the game.")
+print("6. If the whole grid are filled and no")
+print("player has won, the game ends in a draw.")
 
 input("\nPress Enter to start playing: ")
 
@@ -88,7 +88,7 @@ def player_move(icon):
     """
     while True:
         try:
-            choice = input("To leave the game type'exit'\
+            choice = input("To leave the game type'exit'\n \
                 Enter your move (1-9): ").strip()
             if choice == 'exit':
                 print("Thanks for playing Tic-Tac-Toe! Have a great day.")
